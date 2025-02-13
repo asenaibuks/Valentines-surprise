@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <style>
+        body {
+            background-color: #ff4d4d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        button {
+            font-size: 24px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff3333;
+        }
+        #surprise-image {
+            width: 650px;
+            height: auto;
+            max-width: 100%;
+            display: none;
+            margin: 20px auto;
+        }
+        #message {
+            font-size: 18px;
+            margin: 20px 0;
+            white-space: pre-line;  /* Ensures the text respects newlines */
+        }
+    </style>
+</head>
+<body>
+    <h1>Valentine's Day Surprise</h1>
+    <button onclick="revealSurprise()">💖💖💖 Reveal the Surprise 💖💖💖</button>
+
+    <p id="message"></p>
+
+    <img id="surprise-image" src="IMG_5725.jpeg" alt="Valentine's Day Surprise Image">
+
+    <script>
+        function revealSurprise() {
+            const message = "Happy Valentine's Day, My Love! 💖\nI will always be with you dark or light, when you are sad and happy, you are my pillar of strength and motivation always \nI love you to the moon and back!";
+            let i = 0;
+            const messageElement = document.getElementById("message");
+
+            // Function to display message one letter at a time
+            function typeWriter() {
+                if (i < message.length) {
+                    messageElement.innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);  // Adjust typing speed here (in ms)
+                } else {
+                    // Display the image when the message is fully typed
+                    const image = document.getElementById("surprise-image");
+                    image.style.display = "block";
+                }
+            }
+
+            // Clear the previous message and start the typing effect
+            messageElement.innerHTML = "";
+            typeWriter();
+        }
+    </script>
+</body>
+</html>
